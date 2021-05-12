@@ -1,0 +1,55 @@
+<% layout('layouts/boilerplate') %>
+<div class="row">
+  <h1 class="text-center my-5">Blogbejegyzés írása</h1>
+  <div class="col-xl-6 col-lg-8 col-sm-10 mx-auto">
+    <form action="/api/posts" method="POST" novalidate class="validated-form">
+      <div class="mb-3">
+        <label for="author" class="form-label">Szerző</label>
+        <input
+          class="form-control"
+          type="text"
+          name="author"
+          id="author"
+          required
+        />
+        <div class="valid-feedback">Rendben</div>
+      </div>
+      <div class="mb-3">
+        <label for="title" class="form-label">Blog címe</label>
+        <input
+          class="form-control"
+          type="text"
+          name="title"
+          id="title"
+          required
+        />
+        <div class="valid-feedback">Rendben</div>
+      </div>
+      <div class="mb-3">
+        <label for="tags" class="form-label">Címkék</label>
+        <input
+          class="form-control"
+          type="text"
+          name="tags"
+          id="tags"
+          required
+        />
+        <div class="valid-feedback">Rendben</div>
+      </div>
+      <div class="mb-3">
+        <label for="body" class="form-label">Blogbejegyzés</label>
+        <textarea
+          class="form-control"
+          name="body"
+          id="body"
+          rows="5"
+          required
+        ></textarea>
+        <div class="valid-feedback">Rendben</div>
+      </div>
+      <div class="mb-3 text-center">
+        <button class="btn btn-success">Blog beküldése</button>
+      </div>
+    </form>
+  </div>
+</div>

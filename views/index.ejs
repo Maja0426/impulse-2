@@ -1,0 +1,30 @@
+<% layout('layouts/boilerplate') %>
+<div class="row">
+  <h1 class="text-center my-5">Blogbejegyzések</h1>
+</div>
+<div class="row list-page" data-masonry='{"percentPosition": true }'>
+  <% for (let blog of allBlogs) { %>
+  <div class="col-xl-4 col-lg-6 col-sm-12 mx-auto">
+    <div class="card mb-5">
+      <div class="card-body">
+        <h5 class="card-title"><%= blog.title%></h5>
+        <h6 class="card-subtitle mb-2">
+          Szerző: <span class="text-muted"><%= blog.author %></span>
+          <hr />
+        </h6>
+        <p class="card-text"><%= blog.body%></p>
+      </div>
+      <div class="card-footer">
+        <h6>
+          <% blog.tags.forEach((tag) => { %>
+          <span class="badge bg-info text-dark">#<%= tag %> </span>
+          <% }) %>
+        </h6>
+        <form action="/api/posts/<%= blog._id%>?_method=DELETE" method="POST">
+          <button class="btn btn-sm btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <% } %>
+</div>
